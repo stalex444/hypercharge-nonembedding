@@ -5,7 +5,7 @@ public import Mathlib
 /-!
 # Hypercharge is not an element of `sl₄ ⊕ sl₂`: proofs of the compared statements
 
-Each of the seven statements of `Challenge.lean` is proved here, with the identical statement,
+Each of the five statements of `Challenge.lean` is proved here, with the identical statement,
 and the definitions of `Challenge.lean` are repeated verbatim. All proofs are explicit in matrix
 entries (`Matrix.ext`, `fin_cases`, `simp`, `norm_num`, `linear_combination`).
 
@@ -16,13 +16,11 @@ entries (`Matrix.ext`, `fin_cases`, `simp`, `norm_num`, `linear_combination`).
   diagonal entries to agree; trace zero then gives the lepton entry `−3a`.
 * Statement 3: commutation with `E₀₁` and `E₁₀` forces the off-diagonal entries to vanish and the
   diagonal entries to agree; trace zero gives `2a = 0`, so `a = 0`.
-* Statement 4: `a • D` is traceless, so the two trace inequalities of statement 7 apply
-  (`rhoR_ne_Yuc`, `rhoR_ne_Ydc`); the entrywise route (lepton entry `3a` against `0` and `1`,
-  colour entries against `−2/3` and `1/3`) is also valid and is noted in the Challenge docstring.
-* Statement 5: entrywise.
-* Statement 6: `norm_num`.
-* Statement 7: apply `Matrix.trace` to the supposed equality: `trace (−Xᵀ) = −trace X = 0`,
+* Statement 4: entrywise.
+* Statement 5: apply `Matrix.trace` to the supposed equality: `trace (−Xᵀ) = −trace X = 0`,
   `trace Yuc = −2`, `trace Ydc = 2`.
+* Not compared: `BminusL_restriction_ne` (no multiple of `D` restricts to either hypercharge
+  block) — `a • D` is traceless, so the two trace inequalities of statement 5 apply.
 -/
 
 open Matrix Kronecker
@@ -181,16 +179,7 @@ theorem centralizer_sl2_trivial [CharZero K] (Y : Matrix (Fin 2) (Fin 2) K) (htr
   ext i j
   fin_cases i <;> fin_cases j <;> simp [h10, h11', h01, h00]
 
-/-- **4. The commutant acts by one scalar; hypercharge needs two.** The matrix `rhoR (a • D)`,
-which is what every element of the commutant line induces on EACH conjugate copy, equals neither
-`Yuc` nor `Ydc`, for any `a`. -/
-theorem BminusL_same_scalar_on_conjugate_copies [CharZero K] (a : K) :
-    rhoR (a • D K) ≠ Yuc K ∧ rhoR (a • D K) ≠ Ydc K := by
-  have htr : (a • D K).trace = 0 := by
-    norm_num [D, Matrix.trace_smul, Matrix.trace_diagonal, Fin.sum_univ_four]
-  exact ⟨rhoR_ne_Yuc _ htr, rhoR_ne_Ydc _ htr⟩
-
-/-- **5. Hypercharge is `(1/2)(B − L)` plus a right-handed `T₃`-type scalar.** On the left block
+/-- **4. Hypercharge is `(1/2)(B − L)` plus a right-handed `T₃`-type scalar.** On the left block
 the extra piece is `0`; on the conjugate up-type copy it is `−1/2 · 1₄`; on the conjugate
 down-type copy it is `+1/2 · 1₄`. -/
 theorem hypercharge_decomposition [CharZero K] :
@@ -209,17 +198,21 @@ theorem hypercharge_decomposition [CharZero K] :
     fin_cases i <;> fin_cases j <;>
       simp [Ydc, BmL, rhoR] <;> norm_num
 
-/-- **6. Arithmetic of a stated formula.** With `b₀ = −(2/3) Σ_Weyl q²` (sourced physics, not
-proved here), three generations of eight right-handed Weyl fermions of charge `±1/2` give
-`Σ q² = 6` and `b₀ = −4`. Only the rational identity is formalised. -/
-theorem u1R_one_loop_coefficient : -(2 : ℚ) / 3 * (3 * (8 * (1 / 2) ^ 2)) = -4 := by
-  norm_num
-
-/-- **7. Each conjugate copy separately excludes hypercharge from `sl₄`.** For every traceless
+/-- **5. Each conjugate copy separately excludes hypercharge from `sl₄`.** For every traceless
 `X`, `−Xᵀ` is traceless, while `trace Yuc = −2` and `trace Ydc = 2`. -/
 theorem hypercharge_not_in_image_on_either_copy [CharZero K] (X : Matrix (Fin 4) (Fin 4) K)
     (htr : X.trace = 0) : rhoR X ≠ Yuc K ∧ rhoR X ≠ Ydc K :=
   ⟨rhoR_ne_Yuc X htr, rhoR_ne_Ydc X htr⟩
+
+/-! ### Further consequences (not compared) -/
+
+/-- No multiple of `D = diag(1, 1, 1, −3)` restricts to either hypercharge block: `a • D` is
+traceless, so statement 5 applies. Not a compared statement. -/
+theorem BminusL_restriction_ne [CharZero K] (a : K) :
+    rhoR (a • D K) ≠ Yuc K ∧ rhoR (a • D K) ≠ Ydc K := by
+  have htr : (a • D K).trace = 0 := by
+    norm_num [D, Matrix.trace_smul, Matrix.trace_diagonal, Fin.sum_univ_four]
+  exact ⟨rhoR_ne_Yuc _ htr, rhoR_ne_Ydc _ htr⟩
 
 /-- The two conjugate copies receive the same matrix: this is the definition of the action
 (`rhoR` applied to both), recorded here as an `example`, not a compared statement. -/

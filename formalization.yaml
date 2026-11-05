@@ -3,75 +3,90 @@
 version: "v0.4"
 
 project:
-  name: "Hypercharge is not an element of sl(4) + sl(2) acting on (4,2) + (4bar,1) + (4bar,1): the Standard-Model hypercharge on one generation of Pati-Salam content lies outside su(4) + su(2)_L; the commutant of colour in sl(4) is the B - L line; Y = (1/2)(B - L) plus a T_3-type generator"
+  name: "Hypercharge is not an element of sl(4) + sl(2) acting on (4,2) + (4bar,1) + (4bar,1): the Standard-Model hypercharge on one generation of Pati-Salam content lies outside su(4) + su(2)_L; the commutant of colour in sl(4) is the B - L line; Y = (1/2)(B - L) + T_3R"
   description: >-
-    Kernel-checked proofs, in Lean 4 + Mathlib, of seven statements of finite
-    linear algebra over a field K (characteristic zero where a numeral must be
-    nonzero). This is a kernel-checked instance of textbook representation
-    theory (the Pati-Salam decomposition), not a new theorem: the sharpest
-    statement is a 4 x 4 trace computation, and the entry's value is that the
-    non-embedding, the commutant and the decomposition Y = (1/2)(B - L) + T_3R
-    are fixed for exactly this content and normalisation so that they can be
-    cited exactly. The Lie algebra gl_4(K) + gl_2(K) acts on V = (K^4 (x) K^2) + K^4
-    + K^4 by (X, Y) |-> (X (x) 1 + 1 (x) Y, -X^T, -X^T): the defining
-    representation tensored with the defining representation on the first
-    summand and the dual of the defining representation of gl_4 on each of the
-    two remaining summands, which carry the SAME matrix. This is the
-    one-generation Pati-Salam content (4,2) + (4bar,1) + (4bar,1) of
-    su(4) + su(2)_L: the left-handed doublets (u, d, nu, e)_L, the conjugate
-    up-type copy (u_R, nu_R)^c and the conjugate down-type copy (d_R, e_R)^c,
-    colour at indices 0, 1, 2 and the lepton at index 3. The fixed operator is
-    the Standard-Model hypercharge, normalisation Q = T_3 + Y: Y_L = diag(1/6,
-    1/6, 1/6, -1/2) (x) 1_2, Y_uc = diag(-2/3, -2/3, -2/3, 0), Y_dc = diag(1/3,
-    1/3, 1/3, 1). (1) For ALL X in gl_4 and Y in gl_2 (traceless or not): not
-    (rhoL X Y = Y_L and rhoR X = Y_uc and rhoR X = Y_dc) - the two conjugate
-    copies receive one matrix -X^T and Y_uc != Y_dc. (2) If X in gl_4 has
-    trace 0 and commutes with every traceless 3 x 3 matrix embedded in the
-    colour block, then X = a diag(1, 1, 1, -3) for some a: the commutant of
-    sl_3 in sl_4 is the B - L line (no characteristic assumption). (3) If Y in
-    gl_2 has trace 0 and commutes with every traceless 2 x 2 matrix, then
-    Y = 0. (4) For every a, rhoR (a diag(1,1,1,-3)) equals neither Y_uc nor
-    Y_dc: the commutant acts by one scalar where hypercharge needs two. (5)
-    Y_L = (1/2)(B - L) (x) 1, Y_uc = (1/2) rhoR(B - L) - (1/2) 1, Y_dc = (1/2)
-    rhoR(B - L) + (1/2) 1, with B - L = diag(1/3, 1/3, 1/3, -1): hypercharge
-    is half of B - L plus a generator acting by 0 on the left-handed block and
-    by the opposite scalars -1/2, +1/2 on the two right-handed conjugate
-    copies. (6) The rational identity -(2/3) (3 (8 (1/2)^2)) = -4: the
-    arithmetic of the one-loop coefficient b_0 = -(2/3) sum_Weyl q^2 of an
-    abelian gauge factor for eight right-handed Weyl fermions of charge +-1/2
-    per generation and three generations; the formula is a stated physics
-    input and is not formalised, only its arithmetic. (7) For every traceless
-    X in gl_4: rhoR X != Y_uc and rhoR X != Y_dc - each conjugate copy alone
-    excludes hypercharge from sl_4, because trace Y_uc = -2, trace Y_dc = 2
-    and trace(-X^T) = 0; the two blocks have opposite traces, so the
-    obstruction is invisible to the total trace over V and is seen summand by
-    summand. Statement 7 is the sharpest form of the non-embedding and needs
-    neither the commutant nor the pairing of the copies; statements 2-5
-    record the structure behind it. The mathematics is textbook
-    representation theory of the Pati-Salam decomposition (Pati-Salam 1974;
-    Georgi-Glashow 1974; Slansky 1981): the relation Y = (1/2)(B - L) + T_3R
-    and the need for a generator outside su(4) + su(2)_L are standard, and
-    the entry claims only the kernel-checked instance for this content, these
-    operators and this normalisation. Application (no compared statement
-    asserts it): in the author's canon su(3) + su(4) is derived and, given its
-    canonical modulus rule, exactly one su(2)_L is forced; no abelian factor
-    outside these is derived. The statements locate hypercharge relative to
-    that algebra: its B - L half lies inside the derived su(4) (statement 2,
-    the colour commutant), while hypercharge as a whole cannot be carried by
-    su(4) + su(2)_L on this content (statements 1, 4, 7), so a T_3-type
-    generator on right-handed fields must be gauged in addition (statement
-    5); whether it is a u(1) or the Cartan element of an su(2)_R is not
-    decided by any statement here. The question is live because a
-    shepherding committee (Douglas, Gross, Jaffe, Klebanov, Nekrasov; KITP,
-    October and November 2026) is preparing the release of a claimed
-    existence proof of quantum Yang-Mills theory and, as the larger object,
-    of QCD and completions of the Standard Model (the committee's words),
-    described by OpenAI as built on gauge fields and fermions in four
-    dimensions; the statements here are a constraint any such completion
-    whose gauge algebra contains su(4) + su(2)_L must satisfy, not a
-    consequence of or support for that proof, whose artifacts are unreleased
-    as of 2026-11-05, and nothing is asserted about the content that proof
-    actually uses.
+    Kernel-checked proofs, in Lean 4 + Mathlib, of five statements of finite
+    linear algebra over a field K (characteristic zero assumed on statements
+    1, 3, 4, 5; load-bearing on 3, 4, 5, a convenience of the recorded proof
+    on 1 - fidelity (c)). This is a kernel-checked instance of textbook
+    representation theory (the Pati-Salam decomposition), not a new theorem:
+    the sharpest statement is a 4 x 4 trace computation, and the entry's value
+    is that the non-embedding, the commutant and the decomposition
+    Y = (1/2)(B - L) + T_3R are fixed for exactly this content and
+    normalisation so that they can be cited exactly. The Lie algebra
+    gl_4(K) + gl_2(K) acts on V = (K^4 (x) K^2) + K^4 + K^4 by (X, Y) |->
+    (X (x) 1 + 1 (x) Y, -X^T, -X^T): the defining representation tensored
+    with the defining representation on the first summand and the dual of
+    the defining representation of gl_4 on each of the two remaining
+    summands, which carry the SAME matrix. This is the one-generation
+    Pati-Salam content (4,2) + (4bar,1) + (4bar,1) of su(4) + su(2)_L - the
+    restriction to su(4) + su(2)_L of the Pati-Salam content (4,2,1) +
+    (4bar,1,2) of su(4) + su(2)_L + su(2)_R, the two (4bar,1) copies being the
+    two components of the su(2)_R doublet: the left-handed doublets
+    (u, d, nu, e)_L, the conjugate up-type copy (u_R, nu_R)^c and the
+    conjugate down-type copy (d_R, e_R)^c, colour at indices 0, 1, 2 and the
+    lepton at index 3. The fixed operator is the Standard-Model hypercharge
+    (extended by a right-handed neutrino of hypercharge 0, which the content
+    contains), normalisation Q = T_3 + Y: Y_L = diag(1/6, 1/6, 1/6, -1/2) (x)
+    1_2, Y_uc = diag(-2/3, -2/3, -2/3, 0), Y_dc = diag(1/3, 1/3, 1/3, 1).
+    (1) For ALL X in gl_4 and Y in gl_2 (traceless or not): not (rhoL X Y =
+    Y_L and rhoR X = Y_uc and rhoR X = Y_dc) - the two conjugate copies
+    receive one matrix -X^T and Y_uc != Y_dc. (2) If X in gl_4 has trace 0
+    and commutes with every traceless 3 x 3 matrix embedded in the colour
+    block, then X = a diag(1, 1, 1, -3) for some a: the commutant of sl_3 in
+    sl_4 is the B - L line (no characteristic assumption). (3) If Y in gl_2
+    has trace 0 and commutes with every traceless 2 x 2 matrix, then Y = 0.
+    (4) Y_L = (1/2)(B - L) (x) 1, Y_uc = (1/2) rhoR(B - L) - (1/2) 1, Y_dc =
+    (1/2) rhoR(B - L) + (1/2) 1, with B - L = diag(1/3, 1/3, 1/3, -1):
+    hypercharge is half of B - L plus a generator acting by 0 on the
+    left-handed block and by the opposite scalars -1/2, +1/2 on the two
+    right-handed conjugate copies - T_3R on this content. (5) For every
+    traceless X in gl_4: rhoR X != Y_uc and rhoR X != Y_dc - each conjugate
+    copy alone excludes hypercharge from sl_4, because trace Y_uc = -2,
+    trace Y_dc = 2 and trace(-X^T) = 0; the two blocks have opposite traces,
+    so the obstruction is invisible to the total trace over V and is seen
+    summand by summand. Statement 5 is the sharpest form of the
+    non-embedding and needs neither the commutant nor the pairing of the
+    copies; statements 2-4 record the structure behind it (that no multiple
+    of diag(1,1,1,-3) restricts to either hypercharge block follows at once
+    and is proved in Solution.lean as a non-compared lemma). The mathematics
+    is textbook representation theory of the Pati-Salam decomposition
+    (Pati-Salam 1974; Georgi-Glashow 1974; Slansky 1981; Baez-Huerta 2010
+    section 3.3, the source formalised here in Lie-algebra form): the
+    relation Y = (1/2)(B - L) + T_3R and the need for a generator outside
+    su(4) + su(2)_L - T_3R of su(2)_R, the reason Pati and Salam include it -
+    are standard, and the entry claims only the kernel-checked instance for
+    this content, these operators and this normalisation. Application (no
+    compared statement asserts it): in the author's canon the Galois groups
+    S_3 and S_4 of x^3 - x - 1 and x^4 - x - 1 are theorems and reading them
+    as the Weyl groups of su(3) + su(4) is the theory's identification;
+    given its canonical modulus rule, exactly one su(2)_L is forced; no
+    abelian factor outside these is derived. The statements locate
+    hypercharge relative to that algebra: its B - L half lies inside the
+    derived su(4) (statement 2, the colour commutant), while hypercharge as a
+    whole cannot be carried by su(4) + su(2)_L on this content (statements 1
+    and 5), so a T_3R-type generator on right-handed fields must be gauged
+    in addition (statement 4); whether it is gauged as a u(1) or as the
+    Cartan element of an su(2)_R is not decided by any statement here. The
+    question is live because a shepherding committee (Douglas, Gross, Jaffe,
+    Klebanov, Nekrasov; KITP, statements of October 2026 and 3 November 2026)
+    holds custody of a claimed existence proof, produced by an OpenAI model,
+    of quantum Yang-Mills theory "including coupling to fermions" (first
+    statement) and is checking "the Lean proof of the existence of pure
+    Yang-Mills theory" for release (second statement); the KITP working-group
+    page, not the signed statements, describes the larger object as related
+    to "the existence of quantum chromodynamics and completions of the
+    Standard Model"; OpenAI's announcement describes the result as containing
+    gauge fields and fermions in four dimensions and as pertaining to "the
+    simplest grand unified theory that includes the gauge fields and
+    fermions of the Standard Model", without naming that theory. For any
+    model whose gauge algebra contains su(4) + su(2)_L acting on the
+    one-generation Pati-Salam content (4,2) + (4bar,1) + (4bar,1), the
+    statements record in Lie-algebra form the textbook fact that hypercharge
+    needs a generator outside that algebra - in the Pati-Salam model, T_3R of
+    su(2)_R. They are not derived from, and say nothing about the correctness
+    or the content of, the announced proof, whose artifacts are unreleased
+    as of 2026-11-05.
   authors:
     - "Stephanie Alexander"
   license: "MIT"
@@ -107,17 +122,17 @@ sources:
       SU(4) together with a twist k on the right-handed SU(2), records that
       the SU(4) factor alone (k = 0) gives the wrong right-handed
       hypercharges, and that all hypercharges match for k = 3 (the paper's
-      hypercharge is twice this entry's: Q = I_3 + Y/2). Statements 1, 4 and
-      7 are the Lie-algebra form of "the SU(4) factor alone fails on the
+      hypercharge is twice this entry's: Q = I_3 + Y/2). Statements 1 and 5
+      are the Lie-algebra form of "the SU(4) factor alone fails on the
       right-handed particles"; statement 2 is the commutant that makes
-      diag(alpha, alpha, alpha, alpha^-3) the only candidate; statement 5 is
+      diag(alpha, alpha, alpha, alpha^-3) the only candidate; statement 4 is
       the relation Y = (1/2)(B - L) + T_3R on this content; statement 3 is
-      elementary and statement 6 is arithmetic of a stated formula. The paper
+      elementary. The paper
       works at the group level and takes the full Pati-Salam group as given;
       the entry proves the matrix statements for the specific content,
       operators and normalisation named in the description, over a field of
       characteristic zero, and claims nothing beyond that kernel-checked
-      instance. No prior formalization of statements 1, 2, 4 or 7 was found in
+      instance. No prior formalization of statements 1, 2 or 5 was found in
       the search recorded in README 'Prior art' (2026-11-05: Mathlib at the
       pinned revision 065356127b1d; Physlib master 69f7d2a7, which formalises
       the Standard-Model hypercharge assignments and the B - L and Y charge
@@ -139,8 +154,10 @@ sources:
     relationship: "background"
     note: >-
       Background: the su(4) with the lepton as the fourth colour, the content
-      (4,2) + (4bar,1) + (4bar,1) under su(4) + su(2)_L (+ su(2)_R in the
-      original), and B - L as the traceless generator of su(4) commuting with
+      (4,2,1) + (4bar,1,2) of su(4) + su(2)_L + su(2)_R (this entry's two
+      (4bar,1) copies are the two components of the su(2)_R doublet, and the
+      generator statement 4 isolates is T_3R - the reason the paper includes
+      su(2)_R), and B - L as the traceless generator of su(4) commuting with
       colour, all taken from the standard literature. No statement of the
       paper is a compared statement.
     license: "unknown"
@@ -199,9 +216,10 @@ sources:
       the KITP working-group page names as the larger object the existence of
       QCD and "completions of the Standard Model". The committee states that
       "confinement and the mass gap remain very important open challenges".
-      The present entry is a constraint on any such completion whose gauge
-      algebra contains su(4) + su(2)_L acting on the one-generation Pati-Salam
-      content: there, hypercharge requires a generator outside that algebra.
+      For any model whose gauge algebra contains su(4) + su(2)_L acting on
+      the one-generation Pati-Salam content, the present entry records in
+      Lie-algebra form the textbook fact that hypercharge needs a generator
+      outside that algebra - in the Pati-Salam model, T_3R of su(2)_R.
       Nothing is asserted about the content the announced proof actually
       uses. The artifacts are unreleased as of 2026-11-05; the entry cites the
       committee's own words, and the KITP page's phrase, for the scope of
@@ -223,12 +241,16 @@ sources:
       gauge fields and fermions in four dimensions, including Quantum
       Chromodynamics (QCD) and a unified completion of the Standard Model of
       particle physics", built "on Balaban's approach in constructive quantum
-      field theory". The gauge group and representation content of the
-      "unified completion" are not named publicly. The statements of this
-      entry are a constraint on any such completion whose gauge algebra
+      field theory", and adds that "the existence proof pertains to the
+      simplest grand unified theory that includes the gauge fields and
+      fermions of the Standard Model" (all three quotations re-read on the
+      live page 2026-11-05). The gauge group and representation content of
+      that theory are not named publicly. For any model whose gauge algebra
       contains su(4) + su(2)_L acting on the one-generation Pati-Salam
-      content; they are not derived from, and do not bear on the correctness
-      of, the announced proof.
+      content, the statements of this entry record in Lie-algebra form the
+      textbook fact that hypercharge needs a generator outside that algebra;
+      they are not derived from, and say nothing about the correctness or the
+      content of, the announced proof.
     license: "unknown"
     author_endorsement: "not-contacted"
 
@@ -274,16 +296,17 @@ related_formalizations:
 
 status:
   scope: >-
-    Formalized: seven compared theorems, in comparator order, namespace
-    Hypercharge (see the description for their content), and eight auxiliary
-    lemmas in Solution.lean (the three elementary-matrix commutation
-    identities, the traces of Y_uc, Y_dc and of rhoR X, and the two
-    trace-based inequalities). Not formalised: any general theorem (the
+    Formalized: five compared theorems, in comparator order, namespace
+    Hypercharge (see the description for their content), and nine auxiliary
+    lemmas in Solution.lean (the three evaluations emb_e01, emb_e12, emb_e20
+    of emb on the elementary matrices E_01, E_12, E_20; the traces of Y_uc,
+    Y_dc and of rhoR X; the two trace-based inequalities; and
+    BminusL_restriction_ne, that no multiple of diag(1,1,1,-3) restricts to
+    either hypercharge block). Not formalised: any general theorem (the
     commutant of a Levi subalgebra of sl_n; the trace criterion for the dual
-    of a semisimple action; branching rules); the one-loop formula behind
-    statement 6 (only its arithmetic); any statement about which generator
-    (a u(1) or the Cartan element of an su(2)_R) supplies the missing T_3R;
-    any statement about the physical world.
+    of a semisimple action; branching rules); any statement about which
+    generator (a u(1) or the Cartan element of an su(2)_R) supplies the
+    missing T_3R; any statement about the physical world.
   sorry_count: 0
   sorry_in_definitions: 0
   axioms: ["propext", "Classical.choice", "Quot.sound"]
@@ -308,9 +331,15 @@ automation:
         as target (ii) of a physics panel and written in Lean on 2026-11-05
         on the author's direction. Two deviations from the written brief are
         recorded in BUILD.txt and the Challenge docstring: a tautological
-        (rfl) conjunct was dropped from statement 4 and kept as a
-        non-compared example, and statement 7 (the trace form) was added when
-        it was found to be the sharpest form of the non-embedding. The
+        (rfl) conjunct was dropped from the original statement 4 and kept as
+        a non-compared example, and the trace form (now statement 5) was
+        added when it was found to be the sharpest form of the non-embedding.
+        After a second review on 2026-11-05 two of the original seven
+        compared statements were moved out of the compared set: the
+        restriction of multiples of diag(1,1,1,-3) (a one-line corollary of
+        the trace form; kept in Solution.lean as the non-compared lemma
+        BminusL_restriction_ne) and a rational identity instantiating a
+        one-loop formula (physics arithmetic, removed from the package). The
         provenance configuration is source-based (Baez-Huerta section 3.3
         formalised in Lie-algebra form): the mathematics is textbook and the
         entry claims only the kernel-checked instance.
@@ -335,28 +364,40 @@ fidelity:
   divergences: >-
     (a) The Lie algebras enter as matrix spaces: statement 1 is stated for
     ALL X in gl_4 and Y in gl_2 (no tracelessness), which is stronger than the
-    sl_4 + sl_2 statement in the title and contains it; statements 2, 3 and 7
+    sl_4 + sl_2 statement in the title and contains it; statements 2, 3 and 5
     carry trace-zero hypotheses explicitly. (b) The "action" is the explicit
     matrix formula (X, Y) |-> (X (x) 1 + 1 (x) Y, -X^T, -X^T); no Lie-algebra
     structure (brackets, representation axioms) is formalised, because none
-    is needed for the statements. (c) The field K is arbitrary with [CharZero K] wherever the recorded proof
-    divides by a numeral (statements 1, 3, 4, 5, 7); statement 2 holds over
-    any field. For statements 3, 4, 5 and 7 the hypothesis is load-bearing:
-    each fails in characteristic 2 (the identity 1_2 is then traceless and
-    central; trace Y_uc = -2 vanishes and Y_uc = 0, so X = 0 and a = 0 are
-    witnesses; 1/2 = 0 falsifies the Y_dc conjunct of statement 5). For
-    statement 1 the hypothesis is used only by the recorded proof, which
-    compares the (0,0) entries -2/3 and 1/3 (these coincide when 3 = 0, a
-    field's 3^{-1} being 0 there): the lepton entries 0 and 1 of Y_uc and
-    Y_dc differ in every field, so the statement itself holds without the
-    hypothesis; it is stated here with it. (d)
-    Statement 6 is a rational identity in Q, not a statement about any
-    gauge theory; the physics formula it instantiates is cited, not proved.
-    (e) The commutant statements 2 and 3 quantify over traceless test
-    matrices; the proofs instantiate finitely many - the elementary matrices
-    E_01, E_12, E_20 for statement 2 and E_01, E_10 for statement 3 - as
-    recorded in Solution.lean. (f) The physical reading in the README and the
-    description is a cited application; no compared statement asserts it.
+    is needed for the statements. Mutation tests (2026-11-05, in a scratch
+    copy) record what each definition is held by: rhoL enters only statement
+    1, as the conjunct the recorded proof discards, and is constrained by no
+    compared statement (redefining rhoL := 0 breaks no proof); the sign in
+    rhoR = -X^T is pinned only by statement 4 (statements 1 and 5 hold
+    verbatim for X |-> X^T, using only that the image of a traceless X is
+    traceless); Y_L and BmLL are pinned only by statement 4's first conjunct;
+    Y_uc's lepton entry is pinned by statement 4 and, through trace Y_uc =
+    -2, by statement 5; D is pinned by statement 2 (changing it to
+    diag(1,1,1,-1) breaks the proof); the [CharZero K] hypothesis of
+    statement 3 is pinned (removing it breaks the proof). (c) The field K is
+    arbitrary with [CharZero K] wherever the recorded proof divides by a
+    numeral (statements 1, 3, 4, 5); statement 2 holds over any field. For
+    statements 3, 4 and 5 the hypothesis is load-bearing: each fails in
+    characteristic 2 (the identity 1_2 is then traceless and central; trace
+    Y_uc = -2 vanishes and Y_uc = 0, so X = 0 is a witness; 1/2 = 0 falsifies
+    the Y_dc conjunct of statement 4), and 4 and 5 also fail in
+    characteristic 3, where Y_uc is the zero matrix. For statement 1 the
+    hypothesis is used only by the recorded proof, which compares the (0,0)
+    entries -2/3 and 1/3 (these coincide when 3 = 0, a field's 3^{-1} being 0
+    there): the lepton entries 0 and 1 of Y_uc and Y_dc differ in every
+    field, so the statement itself holds without the hypothesis; it is
+    stated here with it. (d) The commutant statements 2 and 3 quantify over
+    traceless test matrices; the proofs instantiate finitely many - the
+    elementary matrices E_01, E_12, E_20 for statement 2 and E_01, E_10 for
+    statement 3 - as recorded in Solution.lean. (e) The physical reading in
+    the README and the description is a cited application; no compared
+    statement asserts it, and the "Standard-Model hypercharge" of the title
+    is that operator extended by a right-handed neutrino of hypercharge 0,
+    which the (4bar,1) content contains.
 
 review:
   status: "self-assessed"
@@ -373,8 +414,14 @@ review:
     simulation, a prior-formalization search and a calibration gate) found
     and corrected one false sentence in this file's fidelity section, the
     missing search record and the provenance configuration before
-    submission. The author read the seven compared statements against their
-    descriptions in the README table and approved them before submission.
+    submission; a third pass (a blind editorial reviewer applying the
+    registry's rubric, a Lean-side mutation audit, a physics referee, and a
+    read of the registry's render pipeline) led to two of the seven original
+    compared statements being moved out of the compared set, to the
+    recorded mutation tests in fidelity (b), and to attribution corrections
+    in the description. The author read the seven original compared
+    statements against their descriptions and approved them on 2026-11-05;
+    the five compared here are five of those seven, unchanged in statement.
 
 alignment:
   namespace: "Hypercharge"
@@ -394,21 +441,11 @@ alignment:
       module: "Solution"
       status: "proved"
       note: "Trace-zero Y in gl_2 commuting with every traceless 2 x 2 matrix is zero (characteristic zero)."
-    - source: "Baez-Huerta 2010 section 3.3 (k = 0 fails on the right-handed particles); Lie-algebra instance formalised here, 2026-11-05"
-      lean: "Hypercharge.BminusL_same_scalar_on_conjugate_copies"
-      module: "Solution"
-      status: "proved"
-      note: "No multiple of diag(1,1,1,-3) acts as Y_uc or as Y_dc under rhoR."
     - source: "The textbook relation Y = (1/2)(B - L) + T_3R (Baez-Huerta 2010 section 3.3, k = 3, in their normalisation; Pati-Salam 1974) on this content; formalised here, 2026-11-05"
       lean: "Hypercharge.hypercharge_decomposition"
       module: "Solution"
       status: "proved"
       note: "Y_L = (1/2) BmLL; Y_uc = (1/2) rhoR BmL - (1/2) 1; Y_dc = (1/2) rhoR BmL + (1/2) 1."
-    - source: "Arithmetic of a stated formula (the one-loop coefficient of an abelian factor; sourced physics, not proved here)"
-      lean: "Hypercharge.u1R_one_loop_coefficient"
-      module: "Solution"
-      status: "proved"
-      note: "-(2/3) (3 (8 (1/2)^2)) = -4 in Q."
     - source: "Baez-Huerta 2010 section 3.3 at the group level; the trace form on each conjugate copy formalised here, 2026-11-05"
       lean: "Hypercharge.hypercharge_not_in_image_on_either_copy"
       module: "Solution"

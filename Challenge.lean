@@ -9,11 +9,16 @@ Let `K` be a field of characteristic zero. On `V = (K⁴ ⊗ K²) ⊕ K⁴ ⊕ K
 `gl₄(K) ⊕ gl₂(K)` acts by `(X, Y) ↦ (X ⊗ 1₂ + 1₄ ⊗ Y, −Xᵀ, −Xᵀ)`: the defining representation
 tensored with the defining representation on the first summand, and the dual of the defining
 representation of `gl₄` on each of the two remaining summands, which carry the SAME matrix. The
-entry asks whether one fixed diagonal operator `Yop = (Y_L, Y_uc, Y_dc)` on `V` — the
-Standard-Model hypercharge, written on the Pati–Salam one-generation content
+entry asks whether one fixed diagonal operator on `V` — the triple `(YL, Yuc, Ydc)` defined
+below, the Standard-Model hypercharge operator (extended by a right-handed neutrino of hypercharge
+`0`, which the `(4̄,1)` content contains) written on the Pati–Salam one-generation content
 `(4,2) ⊕ (4̄,1) ⊕ (4̄,1)` of `su(4) ⊕ su(2)_L` — lies in the image of this action, and what the
-commutant of the colour `sl₃ ⊂ sl₄` and of `sl₂` looks like. Everything is finite linear algebra
-over `K`, explicit in matrix entries. The entry compares exactly these seven statements.
+commutant of the colour `sl₃ ⊂ sl₄` and of `sl₂` looks like. This content is the restriction to
+`su(4) ⊕ su(2)_L` of the Pati–Salam content `(4,2,1) ⊕ (4̄,1,2)` of `su(4) ⊕ su(2)_L ⊕ su(2)_R`: the
+two `(4̄,1)` copies are the two components of the `su(2)_R` doublet, and the generator that
+statement 4 isolates is `T₃R`, the reason Pati and Salam include `su(2)_R`. Everything is finite
+linear algebra over `K`, explicit in matrix entries.
+The entry compares exactly these five statements.
 
 Vocabulary (the definitions below, repeated verbatim in `Solution.lean`). `rhoL X Y` is the
 `8 × 8` matrix `X ⊗ₖ 1₂ + 1₄ ⊗ₖ Y` on `K⁴ ⊗ K²` (indices `Fin 4 × Fin 2`); `rhoR X = −Xᵀ` is the
@@ -38,44 +43,38 @@ The statements:
    characteristic assumption.
 3. `centralizer_sl2_trivial` — if `Y : Matrix (Fin 2) (Fin 2) K` has trace `0` and commutes with
    every traceless `2 × 2` matrix, then `Y = 0`. The commutant of `sl₂` in `sl₂` is zero.
-4. `BminusL_same_scalar_on_conjugate_copies` — for every `a : K`, `rhoR (a • D) ≠ Yuc` and
-   `rhoR (a • D) ≠ Ydc`. (That the two conjugate copies receive the same matrix `rhoR (a • D)` is
-   the definition of the action, not a theorem; this statement says that this one matrix is
-   neither of the two hypercharge blocks: the lepton entry forces one value of `a`, the colour
-   entries another.)
-5. `hypercharge_decomposition` — `YL = (1/2) • BmLL`, `Yuc = (1/2) • rhoR BmL + (−1/2) • 1₄`,
+4. `hypercharge_decomposition` — `YL = (1/2) • BmLL`, `Yuc = (1/2) • rhoR BmL + (−1/2) • 1₄`,
    `Ydc = (1/2) • rhoR BmL + (1/2) • 1₄`: hypercharge is `(1/2)(B − L)` plus an operator that is
-   `0` on the left block and the scalars `−1/2`, `+1/2` on the two conjugate copies.
-6. `u1R_one_loop_coefficient` — the rational identity `−(2/3) · (3 · (8 · (1/2)²)) = −4` in `ℚ`.
-   This is arithmetic of a STATED physics formula (the one-loop coefficient
-   `b₀ = −(2/3) Σ_Weyl q²` of an abelian gauge factor with Weyl fermions of charges `q`, here
-   eight Weyl fermions of charge `±1/2` per generation, three generations); the formula itself is
-   not formalised, only the arithmetic.
-7. `hypercharge_not_in_image_on_either_copy` — for every `X : Matrix (Fin 4) (Fin 4) K` with
+   `0` on the left block and the scalars `−1/2`, `+1/2` on the two conjugate copies — `T₃R` on
+   this content.
+5. `hypercharge_not_in_image_on_either_copy` — for every `X : Matrix (Fin 4) (Fin 4) K` with
    trace `0`: `rhoR X ≠ Yuc` and `rhoR X ≠ Ydc`. Each conjugate copy separately already excludes
    hypercharge from `sl₄`: `trace Yuc = −2`, `trace Ydc = 2`, and `trace (−Xᵀ) = 0`. (The two
    blocks have opposite traces, so hypercharge is traceless on `V` as a whole — the usual
    `Σ Y = 0` — and the obstruction is invisible to the total trace; it is seen summand by
-   summand.) This is the sharpest form of the non-embedding and needs neither the centralizer nor
-   the pairing of the two copies; statements 2–5 record the structure behind it.
+   summand.) This is the sharpest form of the non-embedding and needs neither the commutant nor
+   the pairing of the two copies; statements 2–4 record the structure behind it. (That no multiple
+   of `D` restricts to either hypercharge block follows at once, since `a • D` is traceless; it is
+   proved in `Solution.lean` as a non-compared lemma.)
 
 Every statement here is left unproved as a placeholder; `Solution.lean` proves each, with the
 identical statement.
 
-Physics reading (no compared statement asserts it; it is the cited application). The author's
-canon (Pisot Dimensional Theory; a private working record, cited by entry number) derives the
-gauge Lie algebra `su(3) ⊕ su(4)` by a Galois-as-Weyl mechanism (Findings Registry F:60); given
-its canonical modulus rule it forces exactly one `su(2)_L`, acting on left-handed fields — the
-chiral gauge structure of V − A (F:75) — and the exact absence of a gauged `su(2)_R` at any scale
-(F:77; Ratified Identifications entry 2, the identification that carries it). Read on the
-one-generation content `(4,2) ⊕ (4̄,1) ⊕ (4̄,1)` of `su(4) ⊕ su(2)_L`, statements 1, 4 and 7 say that
-the Standard-Model hypercharge is not an element of `su(4) ⊕ su(2)_L`; statements 2–3 say that
-the only generators of `su(4) ⊕ su(2)_L` commuting with colour `su(3)` and with `su(2)_L` are the
-multiples of `B − L`, so the `B − L` half of hypercharge already lies inside the derived `su(4)`;
-and statement 5 says that the generator which must be added beyond `su(4) ⊕ su(2)_L` to obtain
+Physics reading (no compared statement asserts it; it is the cited application). In the author's
+canon (Pisot Dimensional Theory; a private working record, cited by entry number) the Galois
+groups `S₃` and `S₄` of `x³ − x − 1` and `x⁴ − x − 1` are theorems, and reading them as the Weyl
+groups of `su(3) ⊕ su(4)` is the theory's identification (its findings log, entry F:60); given
+its canonical modulus rule the theory forces exactly one `su(2)_L`, acting on left-handed fields —
+the chiral gauge structure of V − A (F:75) — and the exact absence of a gauged `su(2)_R` at any
+scale (F:77; Ratified Identifications entry 2, the identification that carries it). Read on the
+one-generation content `(4,2) ⊕ (4̄,1) ⊕ (4̄,1)` of `su(4) ⊕ su(2)_L`, statements 1 and 5 say that
+the hypercharge operator is not an element of `su(4) ⊕ su(2)_L`; statements 2–3 say that the only
+generators of `su(4) ⊕ su(2)_L` commuting with colour `su(3)` and with `su(2)_L` are the multiples
+of `B − L`, so the `B − L` half of hypercharge already lies inside the derived `su(4)`; and
+statement 4 says that the generator which must be added beyond `su(4) ⊕ su(2)_L` to obtain
 hypercharge acts trivially on the left-handed block and by opposite scalars `∓1/2` on the two
-right-handed conjugate copies — a `T₃`-type generator on right-handed fields. Whether that
-generator is a `u(1)` or the Cartan element of an `su(2)_R` is NOT decided by any statement here.
+right-handed conjugate copies — `T₃R`, as in the Pati–Salam model. Whether that generator is
+gauged as a `u(1)` or as the Cartan element of an `su(2)_R` is NOT decided by any statement here.
 The mathematics is textbook representation theory of the Pati–Salam decomposition (Pati–Salam
 1974; Georgi–Glashow 1974; Slansky, Phys. Rep. 79 (1981); Baez–Huerta, Bull. AMS 47 (2010) §3.3,
 the source this entry formalises in Lie-algebra form); the entry claims only this kernel-checked
@@ -148,14 +147,7 @@ theorem centralizer_sl2_trivial [CharZero K] (Y : Matrix (Fin 2) (Fin 2) K) (htr
     (hc : ∀ A : Matrix (Fin 2) (Fin 2) K, A.trace = 0 → Y * A = A * Y) : Y = 0 := by
   sorry
 
-/-- **4. The commutant acts by one scalar; hypercharge needs two.** The matrix `rhoR (a • D)`,
-which is what every element of the commutant line induces on EACH conjugate copy, equals neither
-`Yuc` nor `Ydc`, for any `a`. -/
-theorem BminusL_same_scalar_on_conjugate_copies [CharZero K] (a : K) :
-    rhoR (a • D K) ≠ Yuc K ∧ rhoR (a • D K) ≠ Ydc K := by
-  sorry
-
-/-- **5. Hypercharge is `(1/2)(B − L)` plus a right-handed `T₃`-type scalar.** On the left block
+/-- **4. Hypercharge is `(1/2)(B − L)` plus a right-handed `T₃`-type scalar.** On the left block
 the extra piece is `0`; on the conjugate up-type copy it is `−1/2 · 1₄`; on the conjugate
 down-type copy it is `+1/2 · 1₄`. -/
 theorem hypercharge_decomposition [CharZero K] :
@@ -164,13 +156,7 @@ theorem hypercharge_decomposition [CharZero K] :
     Ydc K = (1/2 : K) • rhoR (BmL K) + (1/2 : K) • (1 : Matrix (Fin 4) (Fin 4) K) := by
   sorry
 
-/-- **6. Arithmetic of a stated formula.** With `b₀ = −(2/3) Σ_Weyl q²` (sourced physics, not
-proved here), three generations of eight right-handed Weyl fermions of charge `±1/2` give
-`Σ q² = 6` and `b₀ = −4`. Only the rational identity is formalised. -/
-theorem u1R_one_loop_coefficient : -(2 : ℚ) / 3 * (3 * (8 * (1 / 2) ^ 2)) = -4 := by
-  sorry
-
-/-- **7. Each conjugate copy separately excludes hypercharge from `sl₄`.** For every traceless
+/-- **5. Each conjugate copy separately excludes hypercharge from `sl₄`.** For every traceless
 `X`, `−Xᵀ` is traceless, while `trace Yuc = −2` and `trace Ydc = 2`. -/
 theorem hypercharge_not_in_image_on_either_copy [CharZero K] (X : Matrix (Fin 4) (Fin 4) K)
     (htr : X.trace = 0) : rhoR X ≠ Yuc K ∧ rhoR X ≠ Ydc K := by
