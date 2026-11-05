@@ -1,0 +1,87 @@
+hypercharge-nonembedding -- kernel build record, 2026-11-05
+Toolchain: leanprover/lean4:v4.35.0-rc2
+  lean --version: Lean (version 4.35.0-rc2, arm64-apple-darwin24.6.0, commit 11acb17ec6b07a8f9e9173e6845197929540936b, Release)
+Mathlib rev: 065356127b1dc0016f66b7283ce0ce2c4055aa55
+  lake-manifest: copied from ~/palomar-entries/pisot-sum (same pin; package name hypercharge_nonembedding)
+  .lake/packages: symlink -> ~/palomar-entries/coxeter-growth/.lake/packages (the built Mathlib at that pin)
+
+Build: lake build (defaultTargets Challenge, Solution) -> "Build completed successfully (8934 jobs)", exit 0,
+  2026-11-05, second build of the session (the first build failed on four proof-level points in Solution.lean:
+  two auxiliary trace lemmas needed [CharZero K] for norm_num; one linear_combination coefficient sign; one
+  simp that needed norm_num for 1 + 1 + 1 + -3 = 0; all fixed, no statement changed). Only warnings: the 7
+  'declaration uses sorry' warnings of Challenge.lean (lines 128, 136, 143, 150, 157, 166, 171: the compared
+  placeholders). No warning or error in Solution.lean. Module compile times: Challenge 14 s, Solution 15 s.
+  Token counts (whole-word grep, per file):
+    Challenge.lean  sorry=7 admit=0 native_decide=0 axiom=0
+    Solution.lean   sorry=0 admit=0 native_decide=0 axiom=0
+    Axioms.lean     sorry=0 admit=0 native_decide=0 axiom=0
+  Both .lean modules use the module system (module / public import Mathlib / @[expose] public section);
+  Challenge.lean imports Mathlib only; Solution.lean imports Mathlib only (no library module: all proofs are
+  in Solution.lean). Axioms.lean imports Solution.
+
+#print axioms (lake env lean Axioms.lean, Axioms.lean importing Solution), 2026-11-05:
+  'Hypercharge.hypercharge_not_in_image' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'Hypercharge.centralizer_sl3_in_sl4' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'Hypercharge.centralizer_sl2_trivial' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'Hypercharge.BminusL_same_scalar_on_conjugate_copies' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'Hypercharge.hypercharge_decomposition' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'Hypercharge.u1R_one_loop_coefficient' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'Hypercharge.hypercharge_not_in_image_on_either_copy' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'Hypercharge.emb_e01' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'Hypercharge.emb_e12' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'Hypercharge.emb_e20' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'Hypercharge.trace_Yuc' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'Hypercharge.trace_Ydc' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'Hypercharge.trace_rhoR' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'Hypercharge.rhoR_ne_Yuc' depends on axioms: [propext, Classical.choice, Quot.sound]
+  'Hypercharge.rhoR_ne_Ydc' depends on axioms: [propext, Classical.choice, Quot.sound]
+  (The last eight are the auxiliary lemmas of Solution.lean; they are NOT compared statements.)
+
+Statement identity, Challenge vs Solution (7 theorems + 9 definitions)
+  Definitions (in order): rhoL, rhoR, emb, YL, Yuc, Ydc, BmL, BmLL, D -- identical text in both files.
+  Theorems (in order): hypercharge_not_in_image, centralizer_sl3_in_sl4, centralizer_sl2_trivial,
+    BminusL_same_scalar_on_conjugate_copies, hypercharge_decomposition, u1R_one_loop_coefficient,
+    hypercharge_not_in_image_on_either_copy -- identical statement text in both files; Solution.lean
+    inserts its eight auxiliary lemmas between the definitions and the compared statements, and one
+    non-compared `example` (rhoR X = rhoR X := rfl) after them.
+  Declaration order in Solution = declaration order in Challenge = the comparator order.
+  Count gate: the Challenge docstring says "compares exactly these seven statements" and enumerates 1-7;
+    comparator.json has 7 theorem_names in that order; Challenge.lean has 7 `theorem` declarations, in
+    that order, and 9 `def` declarations = definition_names. The word "sorry" occurs in Challenge.lean
+    exactly 7 times, all in proof bodies.
+  Characteristic assumptions: [CharZero K] on statements 1, 3, 4, 5, 7 (a numeral must be non-zero);
+    statement 2 is over any field K; statement 6 is in ℚ.
+  tools/palomar_provenance_check.py (canon repository): NOT run to completion -- it requires
+    formalization.yaml (the alignment table), which is a submission-time file not part of this build;
+    its RULE 3 counts (docstring "seven", 7 theorems, 7 sorry, 7 comparator names) were checked by hand above.
+
+Comparator
+  lake comparator --inadvisably-no-sandbox (toolchain bin with nanoda_bin on PATH), from the package root,
+    2026-11-05: "Building Challenge ... Exporting #[... Hypercharge.hypercharge_not_in_image,
+    Hypercharge.centralizer_sl3_in_sl4, Hypercharge.centralizer_sl2_trivial,
+    Hypercharge.BminusL_same_scalar_on_conjugate_copies, Hypercharge.hypercharge_decomposition,
+    Hypercharge.u1R_one_loop_coefficient, Hypercharge.hypercharge_not_in_image_on_either_copy, ...,
+    Hypercharge.rhoL, Hypercharge.rhoR, Hypercharge.emb, Hypercharge.YL, Hypercharge.Yuc, Hypercharge.Ydc,
+    Hypercharge.BmL, Hypercharge.BmLL, Hypercharge.D] from Challenge / Building Solution / Build completed
+    successfully (8932 jobs) / Exporting #[the same list] from Solution / nanoda kernel accepts the
+    solution / Lean default kernel accepts the solution / Your solution is okay!", exit 0 (32 s).
+  Not run: the registry's own verify_submission.py / submission workflow (needs a public commit and
+    formalization.yaml); no bubblewrap sandbox on macOS (hence --inadvisably-no-sandbox).
+
+Module provenance
+  Challenge.lean, Solution.lean, Axioms.lean, comparator.json, README.md: written for this entry
+    2026-11-05 (one session; two builds). lean-toolchain and lake-manifest.json copied from
+    ~/palomar-entries/pisot-sum (manifest package name changed to hypercharge_nonembedding); lakefile.toml
+    modelled on pisot-sum's; LICENSE (MIT) copied from pisot-sum. No .github workflow and no
+    formalization.yaml yet (submission-time files).
+
+Files (sha256) -- see SHA256SUMS
+  12cca523b3a7815cd529b5029ebd5be6572ff16ca4d0bfc683c8cfc1013bd9d6  Challenge.lean
+  06fc814494d850a18a28af4d831f2347ba080d602d6c22510ec56b1de5fb48ab  Solution.lean
+  d1b4900e3a55b410d4708f3ed56c41a56b09ea7e3e6fe9591cc826b878d0d195  Axioms.lean
+  6edf05a6e5477bd8d15b868d7dbd1bdf2ee0557a7174c172ed0f1b0b0dd90c36  comparator.json
+  a15691b39c278391e9b71796979bb1cabbf7e3af2e0908a6adc69e9ce57d8704  lakefile.toml
+  8dc8d6f560141069d9073e370611716ef77ada0da8ffa37e2149f44b2e63ac7a  lean-toolchain
+  7b483db7f05219b952362018f7f07f8117b8fe600dc00c66c34fc63d5c90f8c6  lake-manifest.json
+  db89863d376c423c285ae59f9295ef5f50811bca0a88437a1280235bed93689f  README.md
+  d32be532ae3b0129081943d5ba0140833d203720b69e21bc64c735160db351cb  LICENSE

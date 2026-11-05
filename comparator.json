@@ -1,0 +1,26 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "Hypercharge.hypercharge_not_in_image",
+    "Hypercharge.centralizer_sl3_in_sl4",
+    "Hypercharge.centralizer_sl2_trivial",
+    "Hypercharge.BminusL_same_scalar_on_conjugate_copies",
+    "Hypercharge.hypercharge_decomposition",
+    "Hypercharge.u1R_one_loop_coefficient",
+    "Hypercharge.hypercharge_not_in_image_on_either_copy"
+  ],
+  "definition_names": [
+    "Hypercharge.rhoL",
+    "Hypercharge.rhoR",
+    "Hypercharge.emb",
+    "Hypercharge.YL",
+    "Hypercharge.Yuc",
+    "Hypercharge.Ydc",
+    "Hypercharge.BmL",
+    "Hypercharge.BmLL",
+    "Hypercharge.D"
+  ],
+  "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"],
+  "enable_nanoda": true
+}
