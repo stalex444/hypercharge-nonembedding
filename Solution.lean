@@ -16,9 +16,9 @@ entries (`Matrix.ext`, `fin_cases`, `simp`, `norm_num`, `linear_combination`).
   diagonal entries to agree; trace zero then gives the lepton entry `−3a`.
 * Statement 3: commutation with `E₀₁` and `E₁₀` forces the off-diagonal entries to vanish and the
   diagonal entries to agree; trace zero gives `2a = 0`, so `a = 0`.
-* Statement 4: the lepton entry of `rhoR (a • D)` is `3a`; matching `Yuc` forces `a = 0` and then
-  the colour entry `−a = −2/3` fails; matching `Ydc` is excluded by the trace (statement 7's
-  argument).
+* Statement 4: `a • D` is traceless, so the two trace inequalities of statement 7 apply
+  (`rhoR_ne_Yuc`, `rhoR_ne_Ydc`); the entrywise route (lepton entry `3a` against `0` and `1`,
+  colour entries against `−2/3` and `1/3`) is also valid and is noted in the Challenge docstring.
 * Statement 5: entrywise.
 * Statement 6: `norm_num`.
 * Statement 7: apply `Matrix.trace` to the supposed equality: `trace (−Xᵀ) = −trace X = 0`,

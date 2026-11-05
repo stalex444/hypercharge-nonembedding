@@ -63,19 +63,23 @@ Every statement here is left unproved as a placeholder; `Solution.lean` proves e
 identical statement.
 
 Physics reading (no compared statement asserts it; it is the cited application). The author's
-canon derives the gauge Lie algebra `su(3) ⊕ su(4)` by a Galois-as-Weyl mechanism and exactly one
-`su(2)_L` acting on left-handed fields (the V − A structure), and rules out a gauged `su(2)_R` at
-any scale (Findings Registry F:60, F:75; Ratified Identifications entry 2). Read on the
+canon (Pisot Dimensional Theory; a private working record, cited by entry number) derives the
+gauge Lie algebra `su(3) ⊕ su(4)` by a Galois-as-Weyl mechanism (Findings Registry F:60); given
+its canonical modulus rule it forces exactly one `su(2)_L`, acting on left-handed fields — the
+chiral gauge structure of V − A (F:75) — and the exact absence of a gauged `su(2)_R` at any scale
+(F:77; Ratified Identifications entry 2, the identification that carries it). Read on the
 one-generation content `(4,2) ⊕ (4̄,1) ⊕ (4̄,1)` of `su(4) ⊕ su(2)_L`, statements 1, 4 and 7 say that
 the Standard-Model hypercharge is not an element of `su(4) ⊕ su(2)_L`; statements 2–3 say that
 the only generators of `su(4) ⊕ su(2)_L` commuting with colour `su(3)` and with `su(2)_L` are the
-multiples of `B − L`; and statement 5 says that the generator which must be added beyond
-`su(4) ⊕ su(2)_L` to obtain hypercharge acts trivially on the left-handed block and by opposite
-scalars `∓1/2` on the two right-handed conjugate copies — a `T₃`-type generator on right-handed
-fields. Whether that generator is a `u(1)` or the Cartan element of an `su(2)_R` is NOT decided by
-any statement here. The mathematics is textbook representation theory of the Pati–Salam
-decomposition (Pati–Salam 1974; Georgi–Glashow 1974; Slansky, Phys. Rep. 79 (1981)); the entry
-claims only this kernel-checked instance, stated for the specific content and operators above.
+multiples of `B − L`, so the `B − L` half of hypercharge already lies inside the derived `su(4)`;
+and statement 5 says that the generator which must be added beyond `su(4) ⊕ su(2)_L` to obtain
+hypercharge acts trivially on the left-handed block and by opposite scalars `∓1/2` on the two
+right-handed conjugate copies — a `T₃`-type generator on right-handed fields. Whether that
+generator is a `u(1)` or the Cartan element of an `su(2)_R` is NOT decided by any statement here.
+The mathematics is textbook representation theory of the Pati–Salam decomposition (Pati–Salam
+1974; Georgi–Glashow 1974; Slansky, Phys. Rep. 79 (1981); Baez–Huerta, Bull. AMS 47 (2010) §3.3,
+the source this entry formalises in Lie-algebra form); the entry claims only this kernel-checked
+instance, stated for the specific content and operators above.
 -/
 
 open Matrix Kronecker

@@ -85,3 +85,34 @@ Files (sha256) -- see SHA256SUMS
   7b483db7f05219b952362018f7f07f8117b8fe600dc00c66c34fc63d5c90f8c6  lake-manifest.json
   db89863d376c423c285ae59f9295ef5f50811bca0a88437a1280235bed93689f  README.md
   d32be532ae3b0129081943d5ba0140833d203720b69e21bc64c735160db351cb  LICENSE
+
+Addendum (submission commit, 2026-11-05, after a three-lane pre-submission review — reviewer simulation,
+prior-formalization search, calibration gate — and a rebuild from a clean `git archive` of the tree):
+  Changes since the record above: formalization.yaml (new; provenance configuration SOURCE-BASED — Baez–Huerta,
+    Bull. AMS 47 (2010) §3.3, relationship `formalizes`; textbook background sources; the KITP committee
+    statements and the OpenAI announcement as context-only background; Physlib and a Zenodo record as
+    `related_formalizations` with relationship `other`), README.md (final: honesty sentence in paragraph 1,
+    'Prior art' with the recorded search for prior formalizations, 'Physics reading' at the canon's tiers,
+    'Why now' attributions), .github/workflows/palomar-preflight.yml (request_id hypercharge1), .gitignore,
+    docstring-only edits to Challenge.lean (physics-reading paragraph) and Solution.lean (statement 4 bullet:
+    the recorded proof is by trace via rhoR_ne_Yuc / rhoR_ne_Ydc). No theorem statement, definition or proof
+    term changed.
+  Re-verification after those edits (clean archive of HEAD into a scratch directory, .lake/packages symlinked):
+    lake build -> Build completed successfully (8934 jobs), exit 0; 7 'declaration uses sorry' warnings, all
+    Challenge placeholders; Solution no warnings.
+    lake env lean Axioms.lean -> 15 declarations, each [propext, Classical.choice, Quot.sound].
+    lake comparator --inadvisably-no-sandbox -> both export lists match; nanoda kernel accepts; Lean kernel
+    accepts; "Your solution is okay!".
+    Census: Challenge sorry=7 theorem=7 def=9; Solution sorry=0 theorem=15 (7 compared + 8 auxiliary) def=9;
+    Axioms 0/0/0. Challenge imports Mathlib only; every .lean begins with `module`.
+    tools/palomar_provenance_check.py (author's canon tools): derived result_origin source-based; CLEAN.
+    PalomarSubmission scripts/submission_contract.py (pipeline 14aa8d6, python3.11): result_origin
+    'source-based'; sources formalizes ×1, background ×5; related_formalizations builds-on ×1, other ×3.
+  Deviations from the written brief (recorded here as the metadata says): the tautological conjunct "both
+    conjugate copies receive the same matrix" was dropped from statement 4 and kept as a non-compared
+    `example` in Solution.lean; statement 7 (the trace form) was added as the sharpest form of the
+    non-embedding; [CharZero K] is placed only where the recorded proof divides by a numeral.
+  Correction to an earlier sentence of the metadata (found by the calibration gate): statement 1 is NOT
+    false in characteristic 3 — the lepton entries 0 and 1 of Yuc and Ydc differ in every field; CharZero is
+    a convenience of the recorded proof on statement 1 and load-bearing on statements 3, 4, 5 and 7.
+  SHA256SUMS extended to ten files (sources, configuration, metadata, README, LICENSE); recomputed last.
