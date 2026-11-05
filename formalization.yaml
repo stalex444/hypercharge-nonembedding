@@ -330,11 +330,13 @@ automation:
         The statements were fixed by the author's working group on 2026-10-26
         as target (ii) of a physics panel and written in Lean on 2026-11-05
         on the author's direction. Two deviations from the written brief are
-        recorded in BUILD.txt and the Challenge docstring: a tautological
-        (rfl) conjunct was dropped from the original statement 4 and kept as
-        a non-compared example, and the trace form (now statement 5) was
-        added when it was found to be the sharpest form of the non-embedding.
-        After a second review on 2026-11-05 two of the original seven
+        recorded in BUILD.txt: a tautological (rfl) conjunct was dropped from
+        the former statement 4 (BminusL_same_scalar_on_conjugate_copies, since
+        moved out of the compared set and kept as BminusL_restriction_ne) and
+        kept as a non-compared example, and the trace form (now statement 5)
+        was added when it was found to be the sharpest form of the
+        non-embedding. After the third review pass (review.notes) on
+        2026-11-05 two of the original seven
         compared statements were moved out of the compared set: the
         restriction of multiples of diag(1,1,1,-3) (a one-line corollary of
         the trace form; kept in Solution.lean as the non-compared lemma

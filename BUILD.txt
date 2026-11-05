@@ -125,7 +125,8 @@ Addendum 2 (2026-11-05, after a third review — a blind editorial reviewer appl
 Lean-side mutation audit in a scratch copy, a physics referee, and a read of the registry's render pipeline):
   The compared set is reduced from seven statements to FIVE. Removed from the compared set: the former
     statement 4 (no multiple of diag(1,1,1,−3) restricts to either hypercharge block), a one-line corollary
-    of the trace form, kept in Solution.lean as the non-compared lemma BminusL_restriction_ne; and the former
+    of the trace form, kept in Solution.lean as the non-compared lemma BminusL_restriction_ne (renamed from
+    BminusL_same_scalar_on_conjugate_copies); and the former
     statement 6 (a rational identity instantiating a one-loop formula), physics arithmetic, removed from the
     package. The remaining five are the former 1, 2, 3, 5, 7, renumbered 1–5, with statement text unchanged.
   Numbering at this commit: 1 hypercharge_not_in_image · 2 centralizer_sl3_in_sl4 · 3 centralizer_sl2_trivial ·
@@ -134,7 +135,7 @@ Lean-side mutation audit in a scratch copy, a physics referee, and a read of the
     trace_Yuc, trace_Ydc, trace_rhoR, rhoR_ne_Yuc, rhoR_ne_Ydc, BminusL_restriction_ne) and one example.
   Mutation tests (scratch copy, 2026-11-05; recorded in formalization.yaml fidelity (b)): rhoL := 0 breaks no
     proof (rhoL enters only statement 1, as the conjunct the recorded proof discards); rhoR := Xᵀ breaks only
-    statement 4; D := diag(1,1,1,−1) breaks statement 2; removing [CharZero K] from statement 3 breaks it;
+    compared statement 4 (the auxiliary trace_rhoR must be restated as = X.trace); D := diag(1,1,1,−1) breaks statement 2; removing [CharZero K] from statement 3 breaks it;
     Yuc's lepton entry 0 → 1 breaks statements 4 and 5 (and the auxiliary restriction lemma).
   Re-verification at this commit: lake build -> Build completed successfully (8934 jobs), exit 0, five
     'declaration uses sorry' warnings (the Challenge placeholders); lake env lean Axioms.lean -> 14
@@ -148,4 +149,6 @@ Lean-side mutation audit in a scratch copy, a physics referee, and a read of the
     now named as the restriction of (4,2,1) ⊕ (4̄,1,2) of su(4) ⊕ su(2)_L ⊕ su(2)_R, with the isolated generator
     credited as T₃R; "Standard-Model hypercharge" is qualified at first use (extended by ν_R with Y = 0);
     the README 'Setting' sentence on [CharZero K] now matches fidelity (c).
-  Earlier line numbers and hashes in this file are those of their own commits; SHA256SUMS is authoritative.
+  Earlier line numbers, hashes, counts and statement numbers in this file are those of their own commits
+    (seven-statement numbering: former 5 = current 4, former 7 = current 5); Addendum 2 and SHA256SUMS are
+    authoritative.

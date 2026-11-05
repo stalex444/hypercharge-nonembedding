@@ -101,7 +101,7 @@ Bull. Amer. Math. Soc. 47 (2010) 483–552, doi:10.1090/S0273-0979-10-01294-2, a
 which writes the Standard-Model `U(1)` inside `SU(2) × SU(2) × SU(4)` as `diag(α, α, α, α⁻³)` in
 `SU(4)` together with a twist `k` on the right-handed `SU(2)`, finds that `k = 0` (the `SU(4)` factor
 alone) fails on the right-handed particles, and that all the hypercharges match for `k = 3` — the
-group-level form of statements 4 and 5 (their hypercharge is twice ours, `Q = I₃ + Y/2`). The
+group-level form of statements 1, 4 and 5 (their hypercharge is twice ours, `Q = I₃ + Y/2`). The
 relation `Y = (1/2)(B − L) + T₃R` and the need for a generator outside `su(4) ⊕ su(2)_L` are standard;
 the entry claims only the kernel-checked instance: this content, these operators, this normalisation.
 No general theorem (commutants of Levi subalgebras, the trace criterion for semisimple actions) is
