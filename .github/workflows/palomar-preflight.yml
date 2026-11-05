@@ -24,3 +24,5 @@ jobs:
       options: '{"comparator_config_path":"comparator.json","authorization_relationship":"I am a responsible author or maintainer"}'
 
 # Dispatch-only: Actions → "Palomar mechanical preflight" → Run workflow, with the 40-character commit to verify.
+
+# Usage: Actions → "Palomar mechanical preflight" → Run workflow → the 40-character commit SHA to verify.
