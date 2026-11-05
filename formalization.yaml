@@ -80,13 +80,13 @@ project:
 
 classification:
   # math.RT / 17B10 (representations of Lie algebras: commutants, the dual
-  # representation), 15A30 (algebraic systems of matrices), 20G05 (representation
-  # theory for linear algebraic groups: the Pati-Salam decomposition). hep-ph and
+  # representation), 15A27 (commutativity of matrices: statements 2-3), 15A30
+  # (algebraic systems of matrices). hep-ph and
   # math-ph / 81R40 (symmetry breaking), 81V22 (unified quantum theories) because
   # the application section states the physical reading as a cited application;
   # no compared statement is a physical claim.
   arxiv: ["math.RT", "hep-ph", "math-ph"]
-  msc2020: ["17B10", "15A30", "20G05", "81R40", "81V22"]
+  msc2020: ["17B10", "15A27", "15A30", "81R40", "81V22"]
 
 sources:
   - title: "The algebra of grand unified theories"
@@ -96,7 +96,7 @@ sources:
     id: "Bulletin of the American Mathematical Society 47 (2010) 483-552"
     # DOI 10.1090/S0273-0979-10-01294-2; arXiv:0904.1556 (v2, 1 May 2010). Section 3.3
     # read 2026-11-05; Crossref-verified.
-    type: "article"
+    type: "paper"
     location: "https://doi.org/10.1090/S0273-0979-10-01294-2"
     relationship: "formalizes"
     author_endorsement: "not-contacted"
@@ -134,7 +134,7 @@ sources:
     id: "Physical Review D 10 (1974) 275-289"
     # DOI 10.1103/PhysRevD.10.275; Crossref-verified 2026-11-05. The original not
     # re-read for this entry; cited from the standard literature.
-    type: "article"
+    type: "paper"
     location: "https://doi.org/10.1103/PhysRevD.10.275"
     relationship: "background"
     note: >-
@@ -151,7 +151,7 @@ sources:
       - "Sheldon L. Glashow"
     id: "Physical Review Letters 32 (1974) 438-441"
     # DOI 10.1103/PhysRevLett.32.438; Crossref-verified 2026-11-05.
-    type: "article"
+    type: "paper"
     location: "https://doi.org/10.1103/PhysRevLett.32.438"
     relationship: "background"
     note: >-
@@ -167,7 +167,7 @@ sources:
     id: "Physics Reports 79 (1981) 1-128"
     # DOI 10.1016/0370-1573(81)90092-2; Crossref-verified 2026-11-05. The tables
     # cited from the standard literature.
-    type: "article"
+    type: "paper"
     location: "https://doi.org/10.1016/0370-1573(81)90092-2"
     relationship: "background"
     note: >-
@@ -186,7 +186,7 @@ sources:
       - "Nikita Nekrasov"
     id: "KITP, Yang-Mills Working Group statements, October 2026 and 2026-11-03"
     # Both PDFs read 2026-11-05 (sha256 recorded in the author's working notes).
-    type: "web post"
+    type: "other"
     location: "https://www.kitp.ucsb.edu/statement-by-the-yangmills-working-group"
     relationship: "background"
     note: >-
@@ -214,7 +214,7 @@ sources:
     id: "openai.com/index/building-scientific-understanding-with-academic-communities/"
     # Read in a browser 2026-10-26 (the site refuses automated fetch); the physics
     # paragraph was transcribed verbatim into the author's working notes.
-    type: "web post"
+    type: "other"
     location: "https://openai.com/index/building-scientific-understanding-with-academic-communities/"
     relationship: "background"
     note: >-

@@ -116,3 +116,7 @@ prior-formalization search, calibration gate — and a rebuild from a clean `git
     false in characteristic 3 — the lepton entries 0 and 1 of Yuc and Ydc differ in every field; CharZero is
     a convenience of the recorded proof on statement 1 and load-bearing on statements 3, 4, 5 and 7.
   SHA256SUMS extended to ten files (sources, configuration, metadata, README, LICENSE); recomputed last.
+  Final technical pass (2026-11-05, after the PI's approval of the seven statements): formalization.yaml source
+    types set to the policy's canonical values (paper / other), MSC 20G05 replaced by 15A27 (commutativity of
+    matrices; statements 2-3), both validated against the pipeline's checked-in taxonomies; contract and
+    provenance pre-check re-run (source-based; CLEAN); no Lean file changed; SHA256SUMS recomputed.
