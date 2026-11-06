@@ -75,7 +75,7 @@ Statement 5 is the sharpest form of the non-embedding: every traceless `X` fails
 copy separately, with no appeal to the commutant or to the pairing of the two copies (the two
 copies have opposite traces, so the obstruction is invisible to the total trace on `V`). Statements
 2–4 record the structure: the only generators commuting with colour and with `sl₂` are the
-multiples of `B − L`, and the difference `Y − (1/2)(B − L)` is a scalar of opposite sign on the two
+multiples of `D` (of `B − L` when `(3 : K) ≠ 0`), and the difference `Y − (1/2)(B − L)` is a scalar of opposite sign on the two
 conjugate copies and zero on the left block. Statement 1 is the version for `gl₄ ⊕ gl₂` (no trace
 condition), where only the pairing of the copies obstructs; the fact that both copies receive the
 same matrix is the definition of the action and is not a compared statement (an `example` with
