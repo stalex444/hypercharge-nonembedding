@@ -152,3 +152,14 @@ Lean-side mutation audit in a scratch copy, a physics referee, and a read of the
   Earlier line numbers, hashes, counts and statement numbers in this file are those of their own commits
     (seven-statement numbering: former 5 = current 4, former 7 = current 5); Addendum 2 and SHA256SUMS are
     authoritative.
+
+Addendum (2026-11-06, text-only fix answering the Palomar review of submission 3pvf550lmbta, comment 1):
+  In Lean, 1/3 = 0 in characteristic 3, so BmL = diag(0, 0, 0, −1) there, and the old docstring identity
+  "D = diag(1, 1, 1, −3) = 3 · BmL" and the reading "the B − L line" fail. The docstrings of D and of
+  statement 2 (Challenge.lean and Solution.lean, kept verbatim-identical), the Challenge vocabulary paragraph,
+  and README.md now state: the commutant is the line through D over every field, and it is the B − L
+  direction only when (3 : K) ≠ 0. NO statement, definition or proof term changed.
+  Rebuilt 2026-11-06: lake build, Build completed successfully (8934 jobs). Axioms.lean: 14/14
+  #print axioms = [propext, Classical.choice, Quot.sound]. lake comparator --inadvisably-no-sandbox
+  (v4.35.0-rc2 bin with nanoda_bin on PATH): nanoda and Lean default kernels accept; "Your solution is okay!".
+  New checksums: see SHA256SUMS.

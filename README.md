@@ -45,7 +45,9 @@ formalises that fact for this content and claims nothing more.
 
 The fixed operators (normalisation `Q = T₃ + Y`): `YL = diag(1/6, 1/6, 1/6, −1/2) ⊗ₖ 1₂`,
 `Yuc = diag(−2/3, −2/3, −2/3, 0)`, `Ydc = diag(1/3, 1/3, 1/3, 1)`; `BmL = diag(1/3, 1/3, 1/3, −1)`
-(`B − L` on the fundamental), `BmLL = BmL ⊗ₖ 1₂`; `D = diag(1, 1, 1, −3) = 3 · BmL`; `emb A` is a
+(`B − L` on the fundamental), `BmLL = BmL ⊗ₖ 1₂`; `D = diag(1, 1, 1, −3)`, which equals `3 · BmL` when `(3 : K) ≠ 0` (in characteristic 3,
+Lean's `1/3` is `0`, `BmL = diag(0, 0, 0, −1)`, and the identification fails — statement 2 names
+`D` only); `emb A` is a
 `3 × 3` matrix placed in the colour block of a `4 × 4` matrix.
 
 ## The five compared statements (namespace `Hypercharge`)

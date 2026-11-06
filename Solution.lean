@@ -61,8 +61,9 @@ def BmL : Matrix (Fin 4) (Fin 4) K := Matrix.diagonal (![1/3, 1/3, 1/3, -1] : Fi
 /-- `B − L` on the left-handed block: `BmL ⊗ₖ 1₂`. -/
 def BmLL : Matrix (Fin 4 × Fin 2) (Fin 4 × Fin 2) K := BmL K ⊗ₖ (1 : Matrix (Fin 2) (Fin 2) K)
 
-/-- The traceless generator `diag(1, 1, 1, −3) = 3 · (B − L)` of the commutant of `sl₃` in
-`sl₄`. -/
+/-- `diag(1, 1, 1, −3)`, the traceless generator of the commutant of `sl₃` in `sl₄` over every
+field. When `(3 : K) ≠ 0` it equals `3 · BmL`, the `B − L` direction; in characteristic 3 it is
+`diag(1, 1, 1, 0)`, and `BmL` (with `1/3 = 0` in Lean) is not on its line. -/
 def D : Matrix (Fin 4) (Fin 4) K := Matrix.diagonal (![1, 1, 1, -3] : Fin 4 → K)
 
 variable {K}
@@ -119,7 +120,8 @@ theorem hypercharge_not_in_image [CharZero K] (X : Matrix (Fin 4) (Fin 4) K)
   have h := congrFun (congrFun (h2.symm.trans h3) 0) 0
   norm_num [Yuc, Ydc] at h
 
-/-- **2. The commutant of `sl₃` in `sl₄` is the `B − L` line.** A traceless `4 × 4` matrix that
+/-- **2. The commutant of `sl₃` in `sl₄` is the line through `D`** (the `B − L` line when
+`(3 : K) ≠ 0`). A traceless `4 × 4` matrix that
 commutes with every traceless `3 × 3` matrix embedded in the colour block is a multiple of
 `D = diag(1, 1, 1, −3)`. -/
 theorem centralizer_sl3_in_sl4 (X : Matrix (Fin 4) (Fin 4) K) (htr : X.trace = 0)

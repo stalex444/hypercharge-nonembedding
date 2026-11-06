@@ -28,8 +28,10 @@ The fixed operators: `YL = diag(1/6, 1/6, 1/6, −1/2) ⊗ₖ 1₂` (hypercharge
 doublets `(u, d, ν, e)_L`, normalisation `Q = T₃ + Y`), `Yuc = diag(−2/3, −2/3, −2/3, 0)` (on the
 conjugate up-type copy `(u_R, ν_R)ᶜ`), `Ydc = diag(1/3, 1/3, 1/3, 1)` (on the conjugate down-type
 copy `(d_R, e_R)ᶜ`), `BmL = diag(1/3, 1/3, 1/3, −1)` (`B − L` on the fundamental),
-`BmLL = BmL ⊗ₖ 1₂`, and `D = diag(1, 1, 1, −3) = 3 · BmL`, the traceless generator of the
-commutant of `sl₃` in `sl₄`.
+`BmLL = BmL ⊗ₖ 1₂`, and `D = diag(1, 1, 1, −3)`, the traceless generator of the commutant of
+`sl₃` in `sl₄`. When `(3 : K) ≠ 0`, `D = 3 · BmL`, so the line through `D` is the `B − L`
+direction; in characteristic 3 (where Lean's `1/3` is `0`, so `BmL = diag(0, 0, 0, −1)`) this
+identification fails, and statement 2 is a statement about `D` only.
 
 The statements:
 
@@ -39,8 +41,9 @@ The statements:
    copies receive one matrix `−Xᵀ`, and `Yuc ≠ Ydc`.
 2. `centralizer_sl3_in_sl4` — if `X : Matrix (Fin 4) (Fin 4) K` has trace `0` and commutes with
    `emb A` for every traceless `A : Matrix (Fin 3) (Fin 3) K`, then `X = a • D` for some `a : K`.
-   The commutant of `sl₃` in `sl₄` is the line through `D` (the `B − L` direction). No
-   characteristic assumption.
+   The commutant of `sl₃` in `sl₄` is the line through `D` — the `B − L` direction when
+   `(3 : K) ≠ 0`. No characteristic assumption for the statement itself, which names `D`, not
+   `BmL`.
 3. `centralizer_sl2_trivial` — if `Y : Matrix (Fin 2) (Fin 2) K` has trace `0` and commutes with
    every traceless `2 × 2` matrix, then `Y = 0`. The commutant of `sl₂` in `sl₂` is zero.
 4. `hypercharge_decomposition` — `YL = (1/2) • BmLL`, `Yuc = (1/2) • rhoR BmL + (−1/2) • 1₄`,
@@ -119,8 +122,9 @@ def BmL : Matrix (Fin 4) (Fin 4) K := Matrix.diagonal (![1/3, 1/3, 1/3, -1] : Fi
 /-- `B − L` on the left-handed block: `BmL ⊗ₖ 1₂`. -/
 def BmLL : Matrix (Fin 4 × Fin 2) (Fin 4 × Fin 2) K := BmL K ⊗ₖ (1 : Matrix (Fin 2) (Fin 2) K)
 
-/-- The traceless generator `diag(1, 1, 1, −3) = 3 · (B − L)` of the commutant of `sl₃` in
-`sl₄`. -/
+/-- `diag(1, 1, 1, −3)`, the traceless generator of the commutant of `sl₃` in `sl₄` over every
+field. When `(3 : K) ≠ 0` it equals `3 · BmL`, the `B − L` direction; in characteristic 3 it is
+`diag(1, 1, 1, 0)`, and `BmL` (with `1/3 = 0` in Lean) is not on its line. -/
 def D : Matrix (Fin 4) (Fin 4) K := Matrix.diagonal (![1, 1, 1, -3] : Fin 4 → K)
 
 variable {K}
@@ -133,7 +137,8 @@ theorem hypercharge_not_in_image [CharZero K] (X : Matrix (Fin 4) (Fin 4) K)
     ¬ (rhoL X Y = YL K ∧ rhoR X = Yuc K ∧ rhoR X = Ydc K) := by
   sorry
 
-/-- **2. The commutant of `sl₃` in `sl₄` is the `B − L` line.** A traceless `4 × 4` matrix that
+/-- **2. The commutant of `sl₃` in `sl₄` is the line through `D`** (the `B − L` line when
+`(3 : K) ≠ 0`). A traceless `4 × 4` matrix that
 commutes with every traceless `3 × 3` matrix embedded in the colour block is a multiple of
 `D = diag(1, 1, 1, −3)`. -/
 theorem centralizer_sl3_in_sl4 (X : Matrix (Fin 4) (Fin 4) K) (htr : X.trace = 0)
